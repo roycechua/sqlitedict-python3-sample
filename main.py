@@ -20,3 +20,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    mydict.close() # add a close to free-up resources
