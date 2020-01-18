@@ -10,6 +10,6 @@ To run, install **sqlitedict** first
 Then run the main.py program.
 
 Package source:
-https://github.com/RaRe-Technologies/sqlitedict
-https://pypi.org/project/sqlitedict/
+* https://github.com/RaRe-Technologies/sqlitedict
+* https://pypi.org/project/sqlitedict/
 
