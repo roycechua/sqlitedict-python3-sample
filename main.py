@@ -1,23 +1,32 @@
 from sqlitedict import *
 
-mydict = SqliteDict("some.db", autocommit=True)
-mydict["accounts"]=[{"id":1,"name":"John Doe"},{"id":2,"name":"Edward Snowden"}]
+# simple example of Sqlitedict
+dictionarydb = SqliteDict("some.db", autocommit=True) # access the db
+# make 2 new accounts
+accounts_list = dictionarydb.get('accounts',[])
+accounts_list.append({"id":1,"name":"John Doe"})
+accounts_list.append({"id":2,"name":"Edward Snowden"})
+dictionarydb["accounts"] = accounts_list
+print("new dictionary database", dictionarydb["accounts"])
 
-def search(id):
-    """ Search for an account using the id
-        search(id) # id is an integer
-        The output prints the account name associated with the id
-    Example: 
-        search(2)
-    """
-    for account in mydict["accounts"]:
-        if account["id"]==id:
-            print(account["name"])
-            
-def main():
-    id = int(input("Enter an id: "))
-    search(id)
+# make another new account
+accounts_list = dictionarydb.get('accounts')
+accounts_list.append({"id":3,"name":"Royce Chua"})
+dictionarydb["accounts"] = accounts_list
+print(dictionarydb["accounts"])
 
-if __name__ == "__main__":
-    main()
-    mydict.close() # add a close to free-up resources
+# modify values
+accounts_list = dictionarydb.get('accounts')
+accounts_list[2]["name"] = "Roycee Chuaa"
+dictionarydb["accounts"] = accounts_list
+print(dictionarydb["accounts"])
+
+# delete record of edward snowden
+accounts_list = dictionarydb.get('accounts')
+accounts_list.pop(1)
+dictionarydb["accounts"] = accounts_list
+print(dictionarydb["accounts"])
+
+dictionarydb.close() # add a close to free-up resources
+
+
