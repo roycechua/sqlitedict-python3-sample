@@ -7,7 +7,7 @@ To run, install **sqlitedict** first
 ``` python
   pip install sqlitedict 
 ```
-Then run the main.py program.
+Then run the main.py program. The main2.py program is left as a draft of the main.py.
 
 Package source:
 * https://github.com/RaRe-Technologies/sqlitedict
